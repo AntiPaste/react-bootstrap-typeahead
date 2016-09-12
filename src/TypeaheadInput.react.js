@@ -46,6 +46,10 @@ const TypeaheadInput = React.createClass({
      * Placeholder text for the input.
      */
     placeholder: PropTypes.string,
+    /**
+     * Tab index for the input.
+     */
+    tabIndex: PropTypes.number,
   },
 
   getInitialState() {
@@ -69,6 +73,7 @@ const TypeaheadInput = React.createClass({
       onFocus,
       placeholder,
       selected,
+      tabIndex,
     } = this.props;
 
     const inputProps = {disabled, name, onFocus, placeholder};
@@ -79,7 +84,7 @@ const TypeaheadInput = React.createClass({
         onClick={this._handleInputFocus}
         onFocus={this._handleInputFocus}
         style={{outline: 'none'}}
-        tabIndex={-1}>
+        tabIndex={tabIndex}>
         <input
           {...inputProps}
           className={cx('bootstrap-typeahead-input-main', 'form-control', {

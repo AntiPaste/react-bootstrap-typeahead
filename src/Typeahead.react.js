@@ -104,6 +104,10 @@ const Typeahead = React.createClass({
      * to control the component via its parent.
      */
     selected: PropTypes.array,
+    /**
+     * The tab index to give to the input field.
+     */
+    tabIndex: PropTypes.number,
   },
 
   getDefaultProps() {
@@ -121,6 +125,7 @@ const Typeahead = React.createClass({
       multiple: false,
       paginate: true,
       selected: [],
+      tabIndex: -1,
     };
   },
 
@@ -256,6 +261,7 @@ const Typeahead = React.createClass({
       name,
       placeholder,
       renderToken,
+      tabIndex,
     } = this.props;
     const {activeIndex, selected, text} = this.state;
     const Input = multiple ? TokenizerInput : TypeaheadInput;
@@ -276,6 +282,7 @@ const Typeahead = React.createClass({
         ref="input"
         selected={selected.slice()}
         text={text}
+        tabIndex={tabIndex}
       />
     );
   },
